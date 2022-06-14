@@ -1,3 +1,6 @@
+<?php
+     include('config/constantes.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +25,8 @@
 
 	<!-- vendor css -->
 	<link rel="stylesheet" href="assets/css/style.css">
-	
-	
+
+
 
 
 </head>
@@ -33,43 +36,77 @@
 	<div class="flex-grow-1">
 		<div class="h-100 d-md-flex align-items-center auth-side-img">
 			<div class="col-sm-10 auth-content w-auto">
-				<img src="assets/images/auth/auth-logo.png" alt="" class="img-fluid">
-				<h1 class="text-white my-4">Welcome Back!</h1>
-				<h4 class="text-white font-weight-normal">Signin to your account and get explore the Able pro Dashboard Template.<br/>Do not forget to play with live customizer</h4>
+				<img src="assets/images/auth/logo.png" alt="" class="img-fluid">
+				<h1 class="text-white my-4">Bienvenido</h1>
+				<h4 class="text-white font-weight-normal">Inicia sesión para explorar la bases de datos del bar de la ESPEL.</h4>
 			</div>
 		</div>
 		<div class="auth-side-form">
-			<div class=" auth-content">
-				<img src="assets/images/auth/auth-logo-dark.png" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
-				<h3 class="mb-4 f-w-400">Signin</h3>
-				<div class="form-group mb-3">
-					<label class="floating-label" for="Email">Email address</label>
-					<input type="text" class="form-control" id="Email" placeholder="">
+			<form action="" method="POST">
+				<div class=" auth-content">
+					<img src="assets/images/auth/logo-m.png" alt="" class="img-fluid mb-5 d-block d-xl-none d-lg-none">
+					<h3 class="mb-4 f-w-400">Inicio de sesión</h3>
+					<div class="form-group mb-3">
+						<label class="floating-label" for="Email">Nombre de usuario</label>
+						<input type="text" class="form-control" id="Email" name="username" placeholder="">
+					</div>
+					<div class="form-group mb-4">
+						<label class="floating-label" for="Password">Contraseña</label>
+						<input type="password" class="form-control" id="Password" name="password" placeholder="">
+					</div>
+					<p class="text-danger">
+						<?php
+						if (isset($_SESSION['iniciado'])) {
+							echo $_SESSION['iniciado'];
+							unset($_SESSION['iniciado']);
+						}
+						if (isset($_SESSION['error_inicio'])) {
+							echo $_SESSION['error_inicio'];
+							unset($_SESSION['error_inicio']);
+						}
+						?>
+					</p>
+					<button type="submit" name="submit" class="btn btn-block btn-primary mb-4">Iniciar sesión</button>
+
 				</div>
-				<div class="form-group mb-4">
-					<label class="floating-label" for="Password">Password</label>
-					<input type="password" class="form-control" id="Password" placeholder="">
-				</div>
-				<div class="custom-control custom-checkbox text-left mb-4 mt-2">
-					<input type="checkbox" class="custom-control-input" id="customCheck1">
-					<label class="custom-control-label" for="customCheck1">Save credentials.</label>
-				</div>
-				<button class="btn btn-block btn-primary mb-4">Signin</button>
-				<div class="text-center">
-					<div class="saprator my-4"><span>OR</span></div>
-					<button class="btn text-white bg-facebook mb-2 mr-2  wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-facebook-f"></i></button>
-					<button class="btn text-white bg-googleplus mb-2 mr-2 wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-google-plus-g"></i></button>
-					<button class="btn text-white bg-twitter mb-2  wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-twitter"></i></button>
-					<p class="mb-2 mt-4 text-muted">Forgot password? <a href="auth-reset-password-img-side.html" class="f-w-400">Reset</a></p>
-					<p class="mb-0 text-muted">Don’t have an account? <a href="auth-signup-img-side.html" class="f-w-400">Signup</a></p>
-				</div>
-			</div>
+			</form>
+
 		</div>
 	</div>
 </div>
 
+<!-- Required Js -->
+<script src="assets/js/vendor-all.min.js"></script>
+<script src="assets/js/plugins/bootstrap.min.js"></script>
+<script src="assets/js/ripple.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
 
 
 </body>
 
 </html>
+
+<?php
+//Verificar si el formulario a sido enviado
+
+
+if (isset($_POST['submit'])) {
+
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$conexion = mysqli_connect(SERVIDOR, USERNAME, PASSWORD, BASEDATOS);
+
+	$sentenciasql = mysqli_query($conexion, "SELECT user_name, user_password FROM user WHERE user_name = '" . $username . "' and user_password='" . $password . "';");
+	$nr=mysqli_num_rows($sentenciasql);
+	if($nr==1){
+		$_SESSION['iniciado'] = "Bienvenido ".$username;
+    	header('location:'.URLSITIO);
+		
+	}
+	else if($nr ==0){
+		$_SESSION['error_inicio'] = "Usuario o contraseña incorrectos";
+        header('location:'.URLSITIO);
+	}
+	
+}
+?>
