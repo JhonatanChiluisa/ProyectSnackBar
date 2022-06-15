@@ -89,7 +89,7 @@ include('config/constantes.php');
 							<ul class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html"><i class="feather icon-map-pin"></i></a></li>
 								<li class="breadcrumb-item"><a href="#!">Bar ESPEL BDD</a></li>
-								<li class="breadcrumb-item"><a href="#!">Bar Campus</a></li>
+								<li class="breadcrumb-item"><a href="#!">Menú</a></li>
 							</ul>
 						</div>
 					</div>
