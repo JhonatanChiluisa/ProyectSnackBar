@@ -100,8 +100,7 @@ if (isset($_POST['submit'])) {
 	$nr=mysqli_num_rows($sentenciasql);
 	if($nr==1){
 		$_SESSION['iniciado'] = "Bienvenido ".$username;
-    	header('location:'.URLSITIO.'menu.php');
-		
+    	header('location:'.URLSITIO.'usuarios.php');
 	}
 	else if($nr ==0){
 		$_SESSION['error_inicio'] = "Usuario o contraseña incorrectos";
