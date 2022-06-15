@@ -32,18 +32,18 @@ include('config/constantes.php');
 					<li class="nav-item pcoded-menu-caption">
 						<label>Navegación</label>
 					</li>
-					<li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Usuarios</span></a></li>
-					<li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Campus</span></a></li>
+					<li class="nav-item"><a href="usuarios.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Usuarios</span></a></li>
+					<li class="nav-item"><a href="campus.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Campus</span></a></li>
 
-					<li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map-pin"></i></span><span class="pcoded-mtext">Bar Campus</span></a></li>
+					<li class="nav-item"><a href="bar_campus.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map-pin"></i></span><span class="pcoded-mtext">Bar Campus</span></a></li>
 
-					<li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Snack</span></a></li>
+					<li class="nav-item"><a href="snack.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Snack</span></a></li>
 
-					<li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-inbox"></i></span><span class="pcoded-mtext">Buzón de sugerencias</span></a></li>
+					<li class="nav-item"><a href="buzon.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-inbox"></i></span><span class="pcoded-mtext">Buzón de sugerencias</span></a></li>
 
-					<li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-heart"></i></span><span class="pcoded-mtext">Preferencias</span></a></li>
+					<li class="nav-item"><a href="preferencias.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-heart"></i></span><span class="pcoded-mtext">Preferencias</span></a></li>
 
-					<li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-book"></i></span><span class="pcoded-mtext">Menu</span></a></li>
+					<li class="nav-item"><a href="menu_bar.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-book"></i></span><span class="pcoded-mtext">Menu</span></a></li>
 
 					
 				</ul>
