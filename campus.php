@@ -87,9 +87,9 @@ include('config/constantes.php');
 						<div class="col-md-12">
 
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html"><i class="feather icon-user"></i></a></li>
+								<li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
 								<li class="breadcrumb-item"><a href="#!">Bar ESPEL BDD</a></li>
-								<li class="breadcrumb-item"><a href="#!">Usuarios</a></li>
+								<li class="breadcrumb-item"><a href="#!">Campus</a></li>
 							</ul>
 						</div>
 					</div>
@@ -135,9 +135,9 @@ include('config/constantes.php');
 											<table id="report-table" class="table table-bordered table-striped mb-0">
 												<thead>
 													<tr>
-														<th>ID USUARIO</th>
-														<th>NOMBRE DE USUARIO</th>
-														<th>CONTRASEÑA</th>
+														<th>ID CAMPUS</th>
+														<th>NOMBRE DEL CAMPUS</th>
+														<th>DIRECCIÓN</th>
 
 													</tr>
 												</thead>
@@ -145,21 +145,21 @@ include('config/constantes.php');
 													<?php
 													$conn = mysqli_connect(SERVIDOR, USERNAME, PASSWORD, '') or die(mysqli_error($conn));
 													$basededatos = mysqli_select_db($conn, BASEDATOS);
-													$sql = "Select * from user";
+													$sql = "Select * from campus";
 													$res = mysqli_query($conn, $sql);
 													if ($res == true) {
 														$numFilas = mysqli_num_rows($res);
 														if ($numFilas > 0) {
 															while ($fila = mysqli_fetch_assoc($res)) {
-																$id = $fila['user_id'];
-																$nombre = $fila['user_name'];
-																$password = $fila['user_password'];
+																$id = $fila['cam_id'];
+																$nombre = $fila['cam_nombre'];
+																$direccion = $fila['cam_direccion'];
 																
 													?>
 																<tr>
 																	<td><?php echo $id ?></td>
 																	<td><?php echo $nombre  ?></td>
-																	<td><?php echo $password ?></td>
+																	<td><?php echo $direccion ?></td>
 																	
 																</tr>
 															<?php
@@ -167,7 +167,7 @@ include('config/constantes.php');
 														} else {
 															?>
 															<tr>
-																<td colspan="5">Aún no se han creado usuarios</td>
+																<td colspan="5">Aún no se han creado registros</td>
 															</tr>
 													<?php
 														}

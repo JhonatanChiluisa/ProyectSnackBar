@@ -87,9 +87,9 @@ include('config/constantes.php');
 						<div class="col-md-12">
 
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html"><i class="feather icon-user"></i></a></li>
+								<li class="breadcrumb-item"><a href="index.html"><i class="feather icon-map-pin"></i></a></li>
 								<li class="breadcrumb-item"><a href="#!">Bar ESPEL BDD</a></li>
-								<li class="breadcrumb-item"><a href="#!">Usuarios</a></li>
+								<li class="breadcrumb-item"><a href="#!">Bar Campus</a></li>
 							</ul>
 						</div>
 					</div>
@@ -135,9 +135,10 @@ include('config/constantes.php');
 											<table id="report-table" class="table table-bordered table-striped mb-0">
 												<thead>
 													<tr>
-														<th>ID USUARIO</th>
-														<th>NOMBRE DE USUARIO</th>
-														<th>CONTRASEÑA</th>
+														<th>ID CAMPUS</th>
+                                                        <th>ID BAR</th>
+														<th>NOMBRE DEL BAR</th>
+														<th>ABIERTO</th>
 
 													</tr>
 												</thead>
@@ -145,21 +146,23 @@ include('config/constantes.php');
 													<?php
 													$conn = mysqli_connect(SERVIDOR, USERNAME, PASSWORD, '') or die(mysqli_error($conn));
 													$basededatos = mysqli_select_db($conn, BASEDATOS);
-													$sql = "Select * from user";
+													$sql = "Select * from bar";
 													$res = mysqli_query($conn, $sql);
 													if ($res == true) {
 														$numFilas = mysqli_num_rows($res);
 														if ($numFilas > 0) {
 															while ($fila = mysqli_fetch_assoc($res)) {
-																$id = $fila['user_id'];
-																$nombre = $fila['user_name'];
-																$password = $fila['user_password'];
+																$idCam = $fila['cam_id'];
+                                                                $id = $fila['bar_id'];
+																$nombre = $fila['bar_nombre'];
+																$abierto = $fila['bar_abierto'];
 																
 													?>
 																<tr>
+                                                                    <td><?php echo $idCam ?></td>
 																	<td><?php echo $id ?></td>
 																	<td><?php echo $nombre  ?></td>
-																	<td><?php echo $password ?></td>
+																	<td><?php echo $abierto ?></td>
 																	
 																</tr>
 															<?php
@@ -167,7 +170,7 @@ include('config/constantes.php');
 														} else {
 															?>
 															<tr>
-																<td colspan="5">Aún no se han creado usuarios</td>
+																<td colspan="5">Aún no se han creado registros</td>
 															</tr>
 													<?php
 														}
