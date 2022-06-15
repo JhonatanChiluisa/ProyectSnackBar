@@ -59,7 +59,6 @@
 				<?php
 				if (isset($_SESSION['iniciado'])) {
 					echo $_SESSION['iniciado'];
-					unset($_SESSION['iniciado']);
 				}
 				
 				?>

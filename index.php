@@ -100,7 +100,7 @@ if (isset($_POST['submit'])) {
 	$nr=mysqli_num_rows($sentenciasql);
 	if($nr==1){
 		$_SESSION['iniciado'] = "Bienvenido ".$username;
-    	header('location:'.URLSITIO.'manu.php');
+    	header('location:'.URLSITIO.'menu.php');
 		
 	}
 	else if($nr ==0){
