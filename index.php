@@ -48,11 +48,11 @@
 					<h3 class="mb-4 f-w-400">Inicio de sesión</h3>
 					<div class="form-group mb-3">
 						<label class="floating-label" for="Email">Nombre de usuario</label>
-						<input type="text" class="form-control" id="Email" name="username" placeholder="">
+						<input type="text" class="form-control" id="Email" name="username" pattern="[A-Za-z0-9_-]{1,15}" requiered placeholder="">
 					</div>
 					<div class="form-group mb-4">
 						<label class="floating-label" for="Password">Contraseña</label>
-						<input type="text" class="form-control" id="Password" name="password" placeholder="">
+						<input type="password" class="form-control" id="Password" name="password" pattern="[A-Za-z0-9_-]{1,15}" requiered placeholder="">
 					</div>
 					<p class="text-danger">
 						<?php
