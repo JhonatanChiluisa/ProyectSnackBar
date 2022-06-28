@@ -52,7 +52,7 @@
 					</div>
 					<div class="form-group mb-4">
 						<label class="floating-label" for="Password">Contraseña</label>
-						<input type="password" class="form-control" id="Password" name="password" placeholder="">
+						<input type="text" class="form-control" id="Password" name="password" placeholder="">
 					</div>
 					<p class="text-danger">
 						<?php
@@ -91,10 +91,10 @@
 
 
 if (isset($_POST['submit'])) {
-
-	$username = $_POST['username'];
-	$password = $_POST['password'];
 	$conexion = mysqli_connect(SERVIDOR, USERNAME, PASSWORD, BASEDATOS);
+	$username = $conexion->real_escape_string( $_POST['username']);
+	$password = $conexion->real_escape_string( $_POST['password']);
+	
 
 	$sentenciasql = mysqli_query($conexion, "SELECT user_name, user_password FROM user WHERE user_name = '" . $username . "' and user_password='" . $password . "';");
 	$nr=mysqli_num_rows($sentenciasql);
